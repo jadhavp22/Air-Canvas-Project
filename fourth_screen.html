@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Air Canvas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fceabb);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .content-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #ff5c8d;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #333;
+            line-height: 1.6;
+            margin: 10px 0;
+            opacity: 0;
+            animation: fadeIn 3s ease-in-out;
+            animation-delay: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        .exit-button {
+            margin-top: 30px;
+            padding: 12px 30px;
+            background-color: #ff5c8d;
+            color: white;
+            font-size: 1.3rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .exit-button:hover {
+            background-color: #ff3e7d;
+        }
+
+        /* Fade-in animation for content */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content-container">
+        <h1>Thank You for Using Air Canvas!</h1>
+
+        <p>We hope you had fun creating your masterpiece!</p>
+        <p>If you want to try again or explore more features, feel free to return to the home page.</p>
+
+        <button class="exit-button" onclick="window.location.href='/index'">
+            Back to Home
+        </button>
+    </div>
+
+</body>
+</html>

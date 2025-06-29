@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 1.5s ease-in-out;
+      position: relative;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      max-width: 700px;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: #ffffff;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+
+    .names {
+      margin-top: 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #f9f9f9;
+    }
+
+    .home-button {
+      margin-top: 30px;
+      padding: 12px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, #00f2fe, #4facfe);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+    }
+
+    .home-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.8);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 🌟 User Badge + Logout Button */
+    .user-badge {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 10px 16px;
+      font-size: 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+      z-index: 999;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      animation: badgePop 0.6s ease;
+      text-align: center;
+    }
+
+    @keyframes badgePop {
+      0% { transform: translateY(-20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .logout-btn {
+      margin-top: 8px;
+      padding: 5px 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      background: #ff5c8d;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .logout-btn:hover {
+      background-color: #ff3e7d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay">
+    <h1>Thank You for Using AirCanvas 🎨</h1>
+    <p>We hope you enjoyed drawing in the air! Whether it was a masterpiece or a doodle, your creativity means the world to us.</p>
+    <p>AirCanvas is designed to make art accessible, fun, and magical using the power of vision and motion.</p>
+
+    <div class="names">
+      <p>– Developed with by:</p>
+      <p>Prasad Anil Jadhav</p>
+      <p>Swarup Mahesh Shingare</p>
+      <p>Ashitosh Suresh Patil</p>
+      <p>Avadhut Dipak Jadhav</p>
+    </div>
+
+    <button class="home-button" onclick="window.location.href='/'">🏠 Go to Home</button>
+  </div>
+
+  <!-- 🌟 Floating User Badge + Logout -->
+  {% if session['user'] %}
+    <div class="user-badge">
+      👤 {{ session['user'] }}
+      {% if session['role'] == 'premium' %}
+        <span style="color: gold;">🌟 Premium</span>
+      {% else %}
+        <span style="color: #aaa;">🧢 Free</span>
+      {% endif %}
+      <br />
+      <button onclick="logoutUser()" class="logout-btn">🚪 Logout</button>
+    </div>
+  {% endif %}
+
+  <script>
+    function logoutUser() {
+      window.location.href = "/logout";
+    }
+  </script>
+
+</body>
+</html>

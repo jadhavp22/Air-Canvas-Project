@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Congratulations!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      animation: fadeInPage 1.5s ease-in-out;
+    }
+
+    @keyframes fadeInPage {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .congrats-box {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #4facfe;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.3rem;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .celebrate-emoji {
+      font-size: 4rem;
+      animation: float 3s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .home-button {
+      padding: 15px 30px;
+      background: #4facfe;
+      color: white;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .home-button:hover {
+      background: #00f2fe;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="congrats-box">
+    <div class="celebrate-emoji">🎉🎊</div>
+    <h1>Congratulations!</h1>
+    <p>You are now a <strong>Premium User</strong> of AirCanvas! 🌟<br>Enjoy saving and uploading your masterpieces!</p>
+    <button class="home-button" onclick="window.location.href='/'">🏠 Go to Home</button>
+  </div>
+
+</body>
+</html>
